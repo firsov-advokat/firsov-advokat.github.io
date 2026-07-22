@@ -218,7 +218,65 @@
       font-size: 16px;
       color: var(--color-text-muted);
     }
-.price-list {
+
+    .faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  border: 1px solid #d4cabd;
+  border-radius: var(--radius-md);
+  background: #ece6dc;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 48px 16px 16px;
+  position: relative;
+  font-size: 22px;
+  line-height: 1.15;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-primary);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-answer {
+  padding: 0 16px 16px;
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 780px) {
+  .faq-item summary {
+    font-size: 20px;
+    padding-right: 42px;
+  }
+}
+    .price-list {
   display: grid;
   gap: 12px;
 }
@@ -552,38 +610,62 @@
   </div>
 </section>
 <section id="faq" class="section">
-  <h2>Ответы на вопросы</h2>
+  <h2>Вопросы</h2>
   <p class="lead">
-    Краткие разъяснения по ситуациям, с которыми чаще всего обращаются за юридической помощью.
+    Что спрашивают чаще всего
   </p>
 
-  <div class="services-grid">
-    <article class="service-card">
-      <h3>Что делать, если вызывают на допрос?</h3>
-      <p>
-        Прежде всего важно понять, в каком процессуальном статусе вас вызывают и какие права
-        у вас есть. До допроса лучше не давать подробных объяснений без понимания ситуации
-        и заранее обсудить линию поведения с адвокатом.
-      </p>
-    </article>
+  <div class="faq-list">
+    <details class="faq-item" name="faq">
+      <summary>Сколько стоит консультация?</summary>
+      <div class="faq-answer">
+        Устная консультация без изучения документов стоит от 1&nbsp;000&nbsp;₽.
+        Если требуется анализ документов и правовой ситуации, стоимость консультации начинается от 3&nbsp;000&nbsp;₽.
+      </div>
+    </details>
 
-    <article class="service-card">
-      <h3>Что делать, если лишают водительских прав?</h3>
-      <p>
-        Не стоит ждать последнего заседания. Нужно как можно раньше посмотреть материалы,
-        проверить, как оформлены документы, есть ли процессуальные нарушения и какие
-        обстоятельства могут повлиять на исход дела.
-      </p>
-    </article>
+    <details class="faq-item" name="faq">
+      <summary>Можно ли обжаловать уже вступивший в силу приговор?</summary>
+      <div class="faq-answer">
+        Да, в предусмотренных законом случаях возможно кассационное и иное обжалование.
+        Перспективы зависят от содержания судебного акта, допущенных нарушений и материалов дела.
+      </div>
+    </details>
 
-    <article class="service-card">
-      <h3>Когда имеет смысл обжаловать приговор или решение суда?</h3>
-      <p>
-        Жалоба имеет смысл, если есть конкретные правовые основания: ошибки в применении
-        закона, нарушения процедуры или выводы суда, не соответствующие материалам дела.
-        Эффективность обжалования всегда зависит от содержания самого дела.
-      </p>
-    </article>
+    <details class="faq-item" name="faq">
+      <summary>Есть ли смысл защищаться, если дело кажется «очевидным»?</summary>
+      <div class="faq-answer">
+        Да. Даже в ситуациях, которые на первый взгляд кажутся очевидными, значение имеют доказательства,
+        процессуальные нарушения, квалификация деяния и содержание показаний. Выводы можно делать
+        только после изучения материалов дела.
+      </div>
+    </details>
+
+    <details class="faq-item" name="faq">
+      <summary>Вы работаете только в Брянске?</summary>
+      <div class="faq-answer">
+        Основная практика связана с Брянском и Брянской областью.
+        Возможность участия в деле в другом регионе зависит от категории дела, стадии процесса и формата работы.
+      </div>
+    </details>
+
+    <details class="faq-item" name="faq">
+      <summary>Что делать, если задержали и предъявляют обвинение?</summary>
+      <div class="faq-answer">
+        В такой ситуации важно как можно раньше связаться с адвокатом и не давать подробных объяснений,
+        не понимая своего процессуального положения и последствий сказанного.
+        На первых этапах нередко совершаются ошибки, которые потом сложно исправить.
+      </div>
+    </details>
+
+    <details class="faq-item" name="faq">
+      <summary>Как формируется гонорар?</summary>
+      <div class="faq-answer">
+        Размер гонорара зависит от сложности дела, объёма материалов, стадии рассмотрения,
+        количества судебных заседаний и объёма необходимой подготовки.
+        Точная стоимость определяется после обсуждения ситуации и оценки объёма работы.
+      </div>
+    </details>
   </div>
 </section>
 <section id="services" class="section">
